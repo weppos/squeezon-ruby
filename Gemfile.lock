@@ -1,0 +1,21 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    json (1.4.3)
+    mocha (0.9.8)
+      rake
+    rack (1.2.1)
+    rack-test (0.5.4)
+      rack (>= 1.0)
+    rake (0.8.7)
+    sinatra (1.0)
+      rack (>= 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  json (~> 1.4.0)
+  mocha (~> 0.9.8)
+  rack-test
+  sinatra (~> 1.0.0)
