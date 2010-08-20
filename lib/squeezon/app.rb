@@ -25,21 +25,21 @@ module Squeezon
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
-      json @feed.attributes_for_full
+      json @feed.to_attributes
     end
 
     get "/api/feed/head/*" do
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
-      json @feed.attributes_for_head
+      json @feed.head.to_attributes
     end
 
     get "/api/feed/entries/*" do
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
-      json @feed.attributes_for_entries
+      json @feed.entries.to_attributes
     end
 
   end

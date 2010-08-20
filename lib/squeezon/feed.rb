@@ -6,9 +6,6 @@ module Squeezon
 
     attr_reader :url, :source
 
-    KEYS_FOR_HEAD   = [:title, :url, :feed_url, :site_url, :etag, :last_modified, :entries_count]
-    KEYS_FOR_ENTRY  = [:title, :url, :author, :summary, :published, :categories]
-
 
     def initialize(url)
       @url = url
@@ -16,52 +13,103 @@ module Squeezon
     end
 
 
-    delegate :title, :etag, :last_modified, :to => :source
-
-    def feed_url
-      source.feed_url
+    def head
+      @head ||= Head.new(source)
     end
 
-    def site_url
-      source.url
+    def entries
+      @entries ||= Entries.new(source.entries)
     end
 
-    def entries_count
-      source.entries.size
-    end
-
-
-    def attributes_for_full
+    def to_attributes
       {}.tap do |hash|
-        hash.merge!(attributes_for_head)
-        hash.merge!(attributes_for_entries)
-      end
-    end
-
-    def attributes_for_head
-      {}.tap do |hash|
-        KEYS_FOR_HEAD.each do |a|
-          hash[a.to_s] = send(a)
-        end
-      end
-    end
-
-    def attributes_for_entries
-      {}.tap do |hash|
-        hash[:entries] = source.entries.map { |e| entry_to_attributes(e) }
+        hash.merge!(head.to_attributes)
+        hash.merge!(entries.to_attributes)
       end
     end
 
 
-    protected
+    class Head
 
-      def entry_to_attributes(item)
+      ATTRIBUTES = [:title, :url, :feed_url, :site_url, :etag, :last_modified, :entries_count]
+
+      attr_reader :source
+
+      def initialize(source)
+        @source = source
+      end
+
+      def title
+        source.title
+      end
+
+      def url
+        source.url
+      end
+
+      def feed_url
+        source.feed_url
+      end
+
+      def site_url
+        source.url
+      end
+
+      def etag
+        source.etag
+      end
+
+      def last_modified
+        source.last_modified
+      end
+
+      def entries_count
+        source.entries.size
+      end
+
+
+      def to_attributes
         {}.tap do |hash|
-          KEYS_FOR_ENTRY.each do |a|
-            hash[a.to_s] = item.send(a)
+          ATTRIBUTES.each do |a|
+            hash[a.to_s] = send(a)
           end
         end
       end
+
+    end
+
+    class Entry
+
+      ATTRIBUTES  = [:title, :url, :author, :summary, :published, :categories]
+
+      attr_reader :source
+
+      def initialize(source)
+        @source = source
+      end
+
+
+      def to_attributes
+        {}.tap do |hash|
+          ATTRIBUTES.each do |a|
+            hash[a.to_s] = source.send(a)
+          end
+        end
+      end
+
+    end
+
+    class Entries < Array
+
+      def initialize(items)
+        super(items.map { |e| Entry.new(e) })
+      end
+
+      def to_attributes
+        { :entries => map(&:to_attributes) }
+      end
+
+    end
 
   end
 
