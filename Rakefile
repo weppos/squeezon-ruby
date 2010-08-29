@@ -1,17 +1,15 @@
 require File.expand_path("../boot", __FILE__)
-require "rake/testtask"
+require "spec/rake/spectask"
 require "squeezon"
 
-task :default => "test"
+task :default => "spec"
 
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList["test/**/*_test.rb"]
-  t.verbose = true
+Spec::Rake::SpecTask.new do |t|
+  t.spec_opts = ["--options", %Q{"#{File.dirname(__FILE__)}/spec/spec.opts"}]
+  t.spec_files = FileList["spec/**/*_spec.rb"]
 end
 
 desc "Open an irb session preloaded with this library"
 task :console do
   sh "irb -rubygems -I lib -r squeezon.rb"
 end
-
