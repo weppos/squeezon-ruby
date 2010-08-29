@@ -6,6 +6,7 @@ gem "activesupport",  "3.0.0.rc"
 gem "feedzirra"
 
 group :test do
-  gem "mocha",      "~> 0.9.8"
-  gem "rack-test",  :require => "rack/test"
+  gem "mock-server",  :require => "mock_server"
+  gem "mocha",        "~> 0.9.8"
+  gem "rack-test",    :require => "rack/test"
 end

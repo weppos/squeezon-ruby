@@ -7,7 +7,10 @@ require "squeezon"
 
 class Test::Unit::TestCase
   include Rack::Test::Methods
+  extend  MockServer::Methods
 end
+
+TESTCASES_PATH = Pathname.new(File.expand_path("../testcases", __FILE__))
 
 # test/spec/mini 3
 # http://gist.github.com/25455

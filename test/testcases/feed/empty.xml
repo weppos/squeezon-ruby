@@ -1,0 +1,7 @@
+<rss version="2.0">
+   <channel>
+      <title>Example</title>
+      <link>http://example.com/</link>
+      <description>An example feed.</description>
+   </channel>
+</rss>

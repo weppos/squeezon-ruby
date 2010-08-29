@@ -1,0 +1,14 @@
+<rss version="2.0">
+   <channel>
+      <title>Example</title>
+      <link>http://example.com/</link>
+      <description>An example feed.</description>
+   </channel>
+   <item>
+      <title>Item 1</title>
+      <link>http://example.com/item/1</link>
+      <description>Description for item 1.</description>
+      <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate>
+      <guid>http://example.com;item=1</guid>
+   </item>
+</rss>
