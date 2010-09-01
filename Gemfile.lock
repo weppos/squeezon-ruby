@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.0.0.rc)
+    activesupport (3.0.0)
     builder (2.1.2)
     curb (0.7.8)
     feedzirra (0.0.24)
@@ -32,7 +32,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (= 3.0.0.rc)
+  activesupport (~> 3.0.0)
   feedzirra
   json (~> 1.4.0)
   mocha (~> 0.9.8)
