@@ -7,7 +7,7 @@ gem "feedzirra"
 
 group :test do
   gem "rspec",        "~> 1.3.0"
-  gem "mock-server",  :require => "mock_server"
+  gem "mimic"
   gem "mocha",        "~> 0.9.8"
   gem "rack-test",    :require => "rack/test"
 end

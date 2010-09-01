@@ -14,9 +14,11 @@ GEM
     json (1.4.6)
     loofah (0.4.7)
       nokogiri (>= 1.3.3)
+    mimic (0.3.0)
+      rack
+      sinatra
     mocha (0.9.8)
       rake
-    mock-server (0.1)
     nokogiri (1.4.3.1)
     rack (1.2.1)
     rack-test (0.5.4)
@@ -35,8 +37,8 @@ DEPENDENCIES
   activesupport (~> 3.0.0)
   feedzirra
   json (~> 1.4.0)
+  mimic
   mocha (~> 0.9.8)
-  mock-server
   rack-test
   rspec (~> 1.3.0)
   sinatra (~> 1.0.0)
