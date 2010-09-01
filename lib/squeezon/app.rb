@@ -21,10 +21,14 @@ module Squeezon
 
 
     get "/" do
+      expires 1.day, :public, :must_revalidate
+
       "Hello from Squeezon!"
     end
 
     get "/api/feed/full/*" do
+      expires 30.seconds, :public, :must_revalidate
+
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
@@ -32,6 +36,8 @@ module Squeezon
     end
 
     get "/api/feed/head/*" do
+      expires 30.seconds, :public, :must_revalidate
+
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
@@ -39,6 +45,8 @@ module Squeezon
     end
 
     get "/api/feed/entries/*" do
+      expires 30.seconds, :public, :must_revalidate
+
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
