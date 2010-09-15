@@ -1,5 +1,6 @@
 require "sinatra"
 require "squeezon"
+require "newrelic_rpm"
 
 module Squeezon
   class App < Sinatra::Base
