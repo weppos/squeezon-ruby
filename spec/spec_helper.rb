@@ -1,12 +1,13 @@
 ENV["RACK_ENV"] = "test"
 
 require File.expand_path("../../boot", __FILE__)
-require "spec"
 require "squeezon"
 
-TESTCASES_PATH = Pathname.new(File.expand_path("../testcases", __FILE__))
+unless defined?(SPEC_ROOT)
+  SPEC_ROOT = Pathname.new(File.dirname(__FILE__))
+end
 
-Spec::Runner.configure do |conf|
-  conf.mock_with :mocha
-  conf.include Rack::Test::Methods
+RSpec.configure do |config|
+  config.mock_with :mocha
+  config.include Rack::Test::Methods
 end

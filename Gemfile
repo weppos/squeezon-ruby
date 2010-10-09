@@ -7,8 +7,11 @@ gem "feedzirra"
 gem "newrelic_rpm",   :require => false
 
 group :test do
-  gem "rspec",        "~> 1.3.0"
   gem "mimic"
-  gem "mocha",        "~> 0.9.8"
-  gem "rack-test",    :require => "rack/test"
+  gem "mocha",                "~> 0.9.8"
+  gem "rack-test", :require => "rack/test"
+end
+
+group :development, :test do
+  gem "rspec",                ">= 2.0.0.rc"
 end

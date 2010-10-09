@@ -51,7 +51,7 @@ describe Squeezon::App do
 
   Mimic.mimic do
     get "/feed/file.xml" do
-      TESTCASES_PATH.join("feed", "file.xml").read 
+      SPEC_ROOT.join(SPEC_ROOT, "fixtures", "feed", "file.xml").read 
     end
   end
 
