@@ -13,5 +13,5 @@ group :test do
 end
 
 group :development, :test do
-  gem "rspec",                ">= 2.0.0.rc"
+  gem "rspec",                "~> 2.0.0"
 end
