@@ -21,10 +21,10 @@ module Squeezon
       @entries ||= Entries.new(source.entries)
     end
 
-    def to_attributes
+    def to_squeezon
       {}.tap do |hash|
-        hash.merge!(head.to_attributes)
-        hash.merge!(entries.to_attributes)
+        hash.merge!(head.to_squeezon)
+        hash.merge!(entries.to_squeezon)
       end
     end
 
@@ -68,7 +68,7 @@ module Squeezon
       end
 
 
-      def to_attributes
+      def to_squeezon
         {}.tap do |hash|
           ATTRIBUTES.each do |a|
             hash[a.to_s] = send(a)
@@ -89,7 +89,7 @@ module Squeezon
       end
 
 
-      def to_attributes
+      def to_squeezon
         {}.tap do |hash|
           ATTRIBUTES.each do |a|
             hash[a.to_s] = source.send(a)
@@ -105,8 +105,8 @@ module Squeezon
         super(items.map { |e| Entry.new(e) })
       end
 
-      def to_attributes
-        { :entries => map(&:to_attributes) }
+      def to_squeezon
+        { :entries => map(&:to_squeezon) }
       end
 
     end

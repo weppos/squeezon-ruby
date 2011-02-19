@@ -33,7 +33,7 @@ module Squeezon
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
-      json @feed.to_attributes, :callback => params[:callback]
+      json @feed.to_squeezon, :callback => params[:callback]
     end
 
     get "/api/feed/head/*" do
@@ -42,7 +42,7 @@ module Squeezon
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
-      json @feed.head.to_attributes, :callback => params[:callback]
+      json @feed.head.to_squeezon, :callback => params[:callback]
     end
 
     get "/api/feed/entries/*" do
@@ -51,7 +51,7 @@ module Squeezon
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
-      json @feed.entries.to_attributes, :callback => params[:callback]
+      json @feed.entries.to_squeezon, :callback => params[:callback]
     end
 
   end
