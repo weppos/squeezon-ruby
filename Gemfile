@@ -2,11 +2,12 @@ source "http://rubygems.org"
 
 gem 'rake'
 gem 'sinatra',                '~> 1.1.0', :require => false
-gem 'yajl-ruby',              '~> 0.8.0'
+
 gem 'activesupport',          '~> 3.0.4'
 gem 'feedzirra'
 gem 'i18n'
 gem 'newrelic_rpm',   :require => false
+gem 'yajl-ruby',              '~> 0.8.0'
 
 group :test do
   gem 'mimic'

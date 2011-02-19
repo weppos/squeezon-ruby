@@ -1,5 +1,5 @@
-require ::File.expand_path("../boot", __FILE__)
-require "rspec/core/rake_task"
+require ::File.expand_path('../boot', __FILE__)
+require 'rspec/core/rake_task'
 
 task :default => "spec"
 

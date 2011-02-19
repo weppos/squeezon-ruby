@@ -1,4 +1,4 @@
-require "feedzirra"
+require 'feedzirra'
 
 module Squeezon
 

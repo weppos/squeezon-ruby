@@ -1,5 +1,5 @@
-require "spec_helper"
-require "squeezon/app"
+require 'spec_helper'
+require 'squeezon/app'
 
 describe Squeezon::App do
 
