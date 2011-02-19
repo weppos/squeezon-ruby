@@ -36,7 +36,7 @@ module Squeezon
   end
 
   # Gets a Pathname instance pointing to the root folder
-  # of this library (not /lib).
+  # of this package (not /lib).
   #
   # Returns a Pathname.
   def root

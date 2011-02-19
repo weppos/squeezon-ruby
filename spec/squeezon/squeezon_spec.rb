@@ -3,11 +3,11 @@ require "spec_helper"
 describe Squeezon do
 
   describe ".root" do
-    it "should return a Pathname" do
+    it "returns a Pathname" do
       Squeezon.root.should be_instance_of(Pathname)
     end
 
-    it "should return the expanded path to the library root" do
+    it "computes the expanded path to the library root" do
       Squeezon.root.to_s.should == File.expand_path("../../../", __FILE__)
     end
   end
