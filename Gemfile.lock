@@ -18,14 +18,12 @@ GEM
     mimic (0.3.0)
       rack
       sinatra
-    mocha (0.9.9)
-      rake
+    mocha (0.9.12)
     newrelic_rpm (2.13.2)
     nokogiri (1.4.3.1)
     rack (1.2.1)
     rack-test (0.5.6)
       rack (>= 1.0)
-    rake (0.8.7)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
