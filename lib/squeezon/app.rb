@@ -1,24 +1,14 @@
-require "sinatra"
-require "squeezon"
-require "newrelic_rpm"
+require 'sinatra'
+require 'squeezon'
+require 'newrelic_rpm'
 
 module Squeezon
   class App < Sinatra::Base
 
-    def json(template, options = {}, locals = {})
-      content = case template
-        when Symbol
-          raise ArgumentError, "symbol is reserved for template names"
-        when String
-          template
-        else
-          template.to_json
-      end
-      content = "#{options[:callback]}(#{content})" unless options[:callback].blank?
+    dir = File.dirname(File.expand_path(__FILE__))
 
-      content_type :json, :charset => "utf-8"
-      content
-    end
+    set :public,    "#{dir}/public"
+    set :static,    true
 
 
     get "/" do
@@ -52,6 +42,22 @@ module Squeezon
       @feed = Squeezon::Feed.new(@url)
 
       json @feed.entries.to_squeezon, :callback => params[:callback]
+    end
+
+
+    def json(template, options = {}, locals = {})
+      content = case template
+        when Symbol
+          raise ArgumentError, "symbol is reserved for template names"
+        when String
+          template
+        else
+          template.to_json
+      end
+      content = "#{options[:callback]}(#{content})" unless options[:callback].blank?
+
+      content_type :json, :charset => "utf-8"
+      content
     end
 
   end
