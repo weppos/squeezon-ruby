@@ -39,9 +39,9 @@ GEM
     rspec-mocks (2.5.0)
     sax-machine (0.0.16)
       nokogiri (> 0.0.0)
-    sinatra (1.1.2)
+    sinatra (1.2.0)
       rack (~> 1.1)
-      tilt (~> 1.2)
+      tilt (>= 1.2.2, < 2.0)
     tilt (1.2.2)
     yajl-ruby (0.8.0)
 
@@ -58,5 +58,5 @@ DEPENDENCIES
   rack-test
   rake
   rspec (~> 2.5.0)
-  sinatra (~> 1.1.0)
+  sinatra (~> 1.2.0)
   yajl-ruby (~> 0.8.0)

@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem 'rake'
-gem 'sinatra',                '~> 1.1.0', :require => false
+gem 'sinatra',                '~> 1.2.0', :require => false
 
 gem 'activesupport',          '~> 3.0.4'
 gem 'feedzirra'
