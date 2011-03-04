@@ -21,7 +21,7 @@ describe Squeezon::App do
   describe "GET /api/feed/full" do
 
     it "should respond with 200" do
-      get "/api/feed/head/http://localhost:11988/feed/file.xml"
+      get "/api/feed/full/http://localhost:11988/feed/file.xml"
       last_response.status.should == 200
       last_response.body.should match /\{(.*?)\}/
     end
@@ -41,7 +41,7 @@ describe Squeezon::App do
   describe "GET /api/feed/entries" do
 
     it "should respond with 200" do
-      get "/api/feed/head/http://localhost:11988/feed/file.xml"
+      get "/api/feed/entries/http://localhost:11988/feed/file.xml"
       last_response.status.should == 200
       last_response.body.should match /\{(.*?)\}/
     end
