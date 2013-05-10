@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'sinatra', '~> 1.4.0', require: false
 gem 'sinatra-contrib', require: false
 
+gem 'puma'
 gem 'activesupport', '~> 3.2.13'
 gem 'feedzirra', github: 'pauldix/feedzirra'
 gem 'i18n'

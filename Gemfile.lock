@@ -33,6 +33,8 @@ GEM
     multi_json (1.7.3)
     nokogiri (1.5.9)
     plist (3.1.0)
+    puma (2.0.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -71,6 +73,7 @@ DEPENDENCIES
   i18n
   mimic
   mocha
+  puma
   rack-test
   rspec (~> 2.13.0)
   sinatra (~> 1.4.0)
