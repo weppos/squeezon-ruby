@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] = "test"
 
 require File.expand_path("../../boot", __FILE__)
-require "squeezon"
+require 'squeezon'
 
 unless defined?(SPEC_ROOT)
   SPEC_ROOT = Pathname.new(File.dirname(__FILE__))

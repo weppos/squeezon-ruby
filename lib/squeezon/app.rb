@@ -1,25 +1,21 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'squeezon'
-require 'newrelic_rpm'
 
 module Squeezon
   class App < Sinatra::Base
 
-    dir = File.dirname(File.expand_path(__FILE__))
+    set :app_file, __FILE__
 
-    set :public,    "#{dir}/public"
-    set :static,    true
+    configure :development do
+      register Sinatra::Reloader
+    end
 
 
     get "/" do
-      expires 1.day, :public, :must_revalidate
-
       "Hello from Squeezon!"
     end
 
     get "/api/feed/full/*" do
-      expires 60, :public, :must_revalidate
-
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
@@ -27,8 +23,6 @@ module Squeezon
     end
 
     get "/api/feed/head/*" do
-      expires 60, :public, :must_revalidate
-
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 
@@ -36,8 +30,6 @@ module Squeezon
     end
 
     get "/api/feed/entries/*" do
-      expires 60, :public, :must_revalidate
-
       @url  = params[:splat].first
       @feed = Squeezon::Feed.new(@url)
 

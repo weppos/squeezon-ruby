@@ -8,8 +8,9 @@ module Squeezon
 
 
     def initialize(url)
-      @url = url
-      @source = Feedzirra::Feed.fetch_and_parse(url)
+      # Hack. Is this a Sinatra bug?!?
+      @url = url.gsub(%r{(https?):/}, '\1://')
+      @source = Feedzirra::Feed.fetch_and_parse(@url)
     end
 
 

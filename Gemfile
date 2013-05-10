@@ -1,20 +1,20 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
+ruby '2.0.0'
 
-gem 'rake'
-gem 'sinatra',                '~> 1.2.0', :require => false
+gem 'sinatra', '~> 1.4.0', require: false
+gem 'sinatra-contrib', require: false
 
-gem 'activesupport',          '~> 3.0.4'
-gem 'feedzirra'
+gem 'activesupport', '~> 3.2.13'
+gem 'feedzirra', github: 'pauldix/feedzirra'
 gem 'i18n'
-gem 'newrelic_rpm',   :require => false
-gem 'yajl-ruby',              '~> 0.8.0'
+gem 'yajl-ruby', '~> 1.1.0', require: 'yajl'
 
 group :test do
   gem 'mimic'
-  gem 'mocha',                '~> 0.9.8'
-  gem 'rack-test', :require => 'rack/test'
+  gem 'mocha', require: false
+  gem 'rack-test', require: 'rack/test'
 end
 
 group :development, :test do
-  gem 'rspec',                '~> 2.5.0'
+  gem 'rspec', '~> 2.13.0'
 end
