@@ -16,24 +16,24 @@ module Squeezon
     end
 
     get "/api/feed/full/*" do
-      @url  = params[:splat].first
-      @feed = Squeezon::Feed.new(@url)
+      feed = Squeezon::Feed.new(params[:splat].first)
+      data = feed.to_squeezon
 
-      json @feed.to_squeezon, callback: params[:callback]
+      json data, callback: params[:callback]
     end
 
     get "/api/feed/head/*" do
-      @url  = params[:splat].first
-      @feed = Squeezon::Feed.new(@url)
+      feed = Squeezon::Feed.new(params[:splat].first)
+      data = feed.head.to_squeezon
 
-      json @feed.head.to_squeezon, callback: params[:callback]
+      json data, callback: params[:callback]
     end
 
     get "/api/feed/entries/*" do
-      @url  = params[:splat].first
-      @feed = Squeezon::Feed.new(@url)
+      feed = Squeezon::Feed.new(params[:splat].first)
+      data = feed.entries.to_squeezon
 
-      json @feed.entries.to_squeezon, callback: params[:callback]
+      json data, callback: params[:callback]
     end
 
 
