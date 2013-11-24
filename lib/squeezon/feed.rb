@@ -107,7 +107,7 @@ module Squeezon
       end
 
       def to_squeezon
-        { :entries => map(&:to_squeezon) }
+        { entries: map(&:to_squeezon) }
       end
 
     end

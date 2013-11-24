@@ -6,6 +6,14 @@ require 'squeezon/feed'
 module Squeezon
   extend self
 
+  # Gets a Pathname instance pointing to the root folder
+  # of this package (not /lib).
+  #
+  # Returns a Pathname.
+  def root
+    @root ||= Pathname.new(File.expand_path("../../", __FILE__))
+  end
+
   # Gets the @cache_store value.
   #
   # Returns a ActiveSupport::Cache::Store if a store has been set,
@@ -35,14 +43,6 @@ module Squeezon
       self.cache_store = :file_store, root.join("tmp").to_s
       self.cache_store
     end
-  end
-
-  # Gets a Pathname instance pointing to the root folder
-  # of this package (not /lib).
-  #
-  # Returns a Pathname.
-  def root
-    @root ||= Pathname.new(File.expand_path("../../", __FILE__))
   end
 
 end
