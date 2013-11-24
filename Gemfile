@@ -5,7 +5,7 @@ gem 'sinatra', '~> 1.4.0', require: false
 gem 'sinatra-contrib', require: false
 
 gem 'puma'
-gem 'activesupport', '~> 3.2.13'
+gem 'activesupport', '~> 4.0.0'
 gem 'feedzirra', github: 'pauldix/feedzirra'
 gem 'i18n'
 gem 'yajl-ruby', '~> 1.1.0', require: 'yajl'
@@ -17,5 +17,5 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec', '~> 2.13.0'
+  gem 'rspec', '~> 2.14.0'
 end
