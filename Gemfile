@@ -10,6 +10,10 @@ gem 'feedzirra', github: 'pauldix/feedzirra'
 gem 'i18n'
 gem 'yajl-ruby', '~> 1.1.0', require: 'yajl'
 
+group :production do
+  gem 'newrelic_rpm', require: false
+end
+
 group :test do
   gem 'mimic'
   gem 'mocha', require: false

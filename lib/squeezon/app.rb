@@ -10,6 +10,10 @@ module Squeezon
       register Sinatra::Reloader
     end
 
+    configure :production do
+      require 'newrelic_rpm'
+    end
+
 
     get "/" do
       "Hello from Squeezon!"
