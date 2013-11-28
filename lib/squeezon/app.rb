@@ -34,7 +34,7 @@ module Squeezon
     end
 
     get "/api/feed/entries/*" do
-      # GC.start
+      GC.start
       feed = Squeezon::Feed.new(params[:splat].first)
       data = feed.entries.to_squeezon
 
