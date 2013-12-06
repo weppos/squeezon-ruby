@@ -6,7 +6,7 @@ gem 'sinatra-contrib', require: false
 
 gem 'puma'
 gem 'activesupport', '~> 4.0.0'
-gem 'feedzirra', github: 'pauldix/feedzirra'
+gem 'feedzirra', '~> 0.5.0'
 gem 'i18n'
 gem 'yajl-ruby', '~> 1.1.0', require: 'yajl'
 

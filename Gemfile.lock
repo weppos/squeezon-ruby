@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/pauldix/feedzirra.git
-  revision: 2199dba9cb5aae1240ea504af85ec5005f56cd05
-  specs:
-    feedzirra (0.4.0)
-      curb (~> 0.8.1)
-      loofah (~> 1.2.1)
-      nokogiri (~> 1.6.0)
-      sax-machine (~> 0.2.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -21,6 +11,10 @@ GEM
     backports (3.3.5)
     curb (0.8.5)
     diff-lcs (1.2.5)
+    feedzirra (0.5.0)
+      curb (~> 0.8.1)
+      loofah (~> 1.2.1)
+      sax-machine (~> 0.2.1)
     i18n (0.6.5)
     json (1.7.7)
     loofah (1.2.1)
@@ -79,7 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 4.0.0)
-  feedzirra!
+  feedzirra (~> 0.5.0)
   i18n
   mimic
   mocha
