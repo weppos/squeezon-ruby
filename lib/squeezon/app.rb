@@ -35,10 +35,9 @@ module Squeezon
 
     get "/api/feed/entries/*" do
       feed = Squeezon::Feed.new(params[:splat].first)
-      # data = feed.entries.to_squeezon
+      data = feed.entries.to_squeezon
 
-      # json data, callback: params[:callback]
-      json({ entries: [] }, callback: params[:callback])
+      json data, callback: params[:callback]
     end
 
 
